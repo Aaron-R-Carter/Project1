@@ -16,10 +16,9 @@
 
     <div class="container">
         <div id="check-box" class="row">
-            <div class="input-field col m3">
-                
+            <div class="input-field col s6">
+                <label type="text" class="label">Protein:</label>
                 <form action="#">
-                    <label type="text" class="label">Protein:</label>
                     <p>
                         <label>
                             <input type="checkbox" class="filled-in" checked="checked" />
@@ -74,32 +73,28 @@
                             <span>Ground Turkey</span>
                         </label>
                     </p>
-
-                    <div class="input-field col s6"></div>
                 </form>
             </div>
+            <div class="input-field col s6">
+            <form id="ingredient-add-btn" class="row">
 
+                <!-- Button will trigger new ingredient to be added -->
+                <div class="col s 12">
+                    <input id="add " class="btn btn-primary mb-2" type="submit" value="add ingredient">
+                </div>
+            </form>
+
+
+            <div id="ingredient-view-button"></div>
 
         </div>
-        <form id="ingredient-add-btn" class="row">
-
-            <!-- Button will trigger new ingredient to be added -->
-            <div class="col s 12">
-                <input id="add " class="btn btn-primary mb-2" type="submit" value="add ingredient">
-            </div>
-        </form>
-
-
-        <div id="ingredient-view-button"></div>
-
-    </div>
 
 
 
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
-        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <script src="./script.js"></script>
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+            integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+        <script src="./script.js"></script>
 
 </body>
 

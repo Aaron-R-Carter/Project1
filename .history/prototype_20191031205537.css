@@ -1,13 +1,11 @@
 #form-page {
     width: 100%;
- 
+    height: 500px;
     border: 2px solid black;
 }
-.label {
-    font-size: 15px;
-}
-#ingredient-input {
+
+#ingredient-form {
     width: 100%;
-    height: 200px;
+    height: 300px;
     border: 2px solid black;
 }
