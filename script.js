@@ -1,4 +1,5 @@
 var form = $("#form-column");
+ aaron_results-page-prototype-v1
 var input = $("#ingredients-input");
 var chipsColumn = $("#chips-column");
 var ingredientsArray = [];
@@ -29,3 +30,12 @@ function renderIngredients() {
 }
 $("#ingredients").chips();
 // var ingredientsString = ingredientsArray.join("&");
+
+form.on("submit", function(event){
+   event.preventDefault();
+   var input = $("#ingredients-input");
+   var inputVal = input.val();
+   console.log(inputVal);
+});
+    
+
