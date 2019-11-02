@@ -8,20 +8,12 @@ var ingredientsArray= [];
 form.on("submit", function(event){
    event.preventDefault();
    var inputVal = input.val();
-   // console.log(inputVal);
+   console.log(inputVal);
    ingredientsArray.push(inputVal);
    console.log(ingredientsArray);
-   // console.log(ingredientsString);
-   renderChips();
+   console.log(ingredientsString);
    input.val("");
 });
 function renderChips(){
-   //create html element;
-   var chipsColumn = $("#chips-column");
-   var div = $("<div>");
-   var p = $("<p>").text(input.val());
-   div.append(p);
-   chipsColumn.append(div);
-
-  
+   //create html element
 }

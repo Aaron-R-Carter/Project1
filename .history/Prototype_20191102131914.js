@@ -12,16 +12,13 @@ form.on("submit", function(event){
    ingredientsArray.push(inputVal);
    console.log(ingredientsArray);
    // console.log(ingredientsString);
-   renderChips();
    input.val("");
+   renderChips();
 });
 function renderChips(){
    //create html element;
-   var chipsColumn = $("#chips-column");
-   var div = $("<div>");
-   var p = $("<p>").text(input.val());
-   div.append(p);
-   chipsColumn.append(div);
+   var chipsColumn = $("#chips-Column");
+   chipsColumn.text(`<div><p>${input.val()}</p></div>`);
 
   
 }

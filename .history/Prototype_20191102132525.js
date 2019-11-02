@@ -1,4 +1,4 @@
-var form = $("#form-column");
+ar form = $("#form-column");
 var input = $("#ingredients-input");
 var chipsColumn = $("#chips-column");
 var ingredientsArray= [];
@@ -18,10 +18,7 @@ form.on("submit", function(event){
 function renderChips(){
    //create html element;
    var chipsColumn = $("#chips-column");
-   var div = $("<div>");
-   var p = $("<p>").text(input.val());
-   div.append(p);
-   chipsColumn.append(div);
+   chipsColumn.text(`<div><p>${input.val()}</p></div>`);
 
   
 }
