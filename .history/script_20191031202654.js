@@ -3,9 +3,9 @@
     <form id="ingredient-form">
         <label for="ingredient-input">List of Ingredients:</label>
         <br>
-        <input type="text" id="ingredient-input" placeholder="Ingredients">
+        <input type="text" id="ingredient-input" placeholder="ingredient">
 
-        <!-- Button will trigger new ingredients to be added -->
+        <!-- Button will trigger new zipcode to be added -->
         <input id="add " class="btn btn-primary mb-2" type="submit" value="Add a zipcode">
     </form>
 

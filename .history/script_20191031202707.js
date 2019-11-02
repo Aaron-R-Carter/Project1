@@ -5,7 +5,7 @@
         <br>
         <input type="text" id="ingredient-input" placeholder="Ingredients">
 
-        <!-- Button will trigger new ingredients to be added -->
+        <!-- Button will trigger new ingred to be added -->
         <input id="add " class="btn btn-primary mb-2" type="submit" value="Add a zipcode">
     </form>
 
