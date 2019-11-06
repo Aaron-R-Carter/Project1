@@ -3,7 +3,6 @@ var input = $("#ingredients-input");
 var chipsColumn = $("#chips-column");
 var ingredientsArray = [];
 
-
 form.on("submit", function (e) {
     e.preventDefault();
 
@@ -51,9 +50,7 @@ $("#ingredients").chips();
 function getSpoonacularData(searchItem, number, callBack) {
 
     $.ajax({
-        // method: "GET",
-        // url: `https://api.spoonacular.com/recipes/search?query=${searchItem}&number=${number}&apiKey=bd181a4abdb64fba83f1add04302f39c`,
-        // {
+        
         "async": true,
         "crossDomain": true,
         "url": `https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients?number=${number}&ranking=1&ignorePantry=false&ingredients=${searchItem}`,
@@ -62,7 +59,7 @@ function getSpoonacularData(searchItem, number, callBack) {
             "x-rapidapi-host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
             "x-rapidapi-key": "1ef656e72fmshe5f4267e958ab0fp1174eejsndba562eb441a"
         }
-        // }
+   
     }).then(function (response) {
 
         callBack(response)
@@ -75,5 +72,6 @@ function getSpoonacularData(searchItem, number, callBack) {
 
     })
 };
+
 
 

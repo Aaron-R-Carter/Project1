@@ -1,0 +1,37 @@
+body{
+    background-color:white;
+}
+
+
+#main-container{
+    margin-top: 20px;
+    
+}
+
+#results-recipe-col{
+    padding:20px;
+}
+
+#ingredients{
+    margin: 30px;
+}
+
+#search-card{
+    padding: 10px;
+    
+}
+
+#form-column{
+    margin-bottom: 15px;
+    margin-left: 15px;
+}
+
+#card-col{
+    margin-top: 25px; 
+}
+
+.checkbox-item{
+    margin-left: 25px;
+    margin-right: 25px;
+}
+

@@ -3,7 +3,6 @@ var input = $("#ingredients-input");
 var chipsColumn = $("#chips-column");
 var ingredientsArray = [];
 
-
 form.on("submit", function (e) {
     e.preventDefault();
 
@@ -75,5 +74,6 @@ function getSpoonacularData(searchItem, number, callBack) {
 
     })
 };
+
 
 
