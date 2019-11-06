@@ -3,19 +3,6 @@ var input = $("#ingredients-input");
 var chipsColumn = $("#chips-column");
 var ingredientsArray = [];
 
-// form.on("submit", function(event){
-//     event.preventDefault(); 
-//     var chipInstance = M.Chips.getInstance($("#ingredients"));
-//     var ingredientsData = chipInstance.chipsData;
-//     ingredientsArray = [];
-//     ingredientsData.forEach(function(ingredient){
-//         ingredientsArray.push(ingredient.tag);
-//     });
-//     console.log(ingredientsArray);
-//     renderIngredients(ingredientsArray);
-
-// });
-
 form.on("submit", function (e) {
     e.preventDefault();
 
@@ -63,9 +50,7 @@ $("#ingredients").chips();
 function getSpoonacularData(searchItem, number, callBack) {
 
     $.ajax({
-        // method: "GET",
-        // url: `https://api.spoonacular.com/recipes/search?query=${searchItem}&number=${number}&apiKey=bd181a4abdb64fba83f1add04302f39c`,
-        // {
+        
         "async": true,
         "crossDomain": true,
         "url": `https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients?number=${number}&ranking=1&ignorePantry=false&ingredients=${searchItem}`,
@@ -74,7 +59,7 @@ function getSpoonacularData(searchItem, number, callBack) {
             "x-rapidapi-host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
             "x-rapidapi-key": "1ef656e72fmshe5f4267e958ab0fp1174eejsndba562eb441a"
         }
-        // }
+   
     }).then(function (response) {
 
         callBack(response)
@@ -89,25 +74,4 @@ function getSpoonacularData(searchItem, number, callBack) {
 };
 
 
-// var form = $("#form-column");
-// form.on("submit", function(event){
-//   event.preventDefault();
-//   var input = $("#ingredients-input");
-//   var inputVal = input.val();
-//   console.log(inputVal);
-//   displayRecipe(inputVal)
-// });
-// function displayRecipe(search) {
-//   var settings = {
-//       "async": true,
-//       "crossDomain": true,
-//       "url": `https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients?number=10&ranking=1&ignorePantry=false&ingredients=${search}`,
-//       "method": "GET",
-//       "headers": {
-//           "x-rapidapi-host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
-//           "x-rapidapi-key": "1ef656e72fmshe5f4267e958ab0fp1174eejsndba562eb441a"
-//       }
-//   }
-//   $.ajax(settings).done(function (response) {
-//       console.log(response);
 

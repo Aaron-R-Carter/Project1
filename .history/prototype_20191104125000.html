@@ -9,21 +9,29 @@
     <link rel="stylesheet" href="./style.css">
     <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
 </head>
 
 <body>
 
     <div class="container" id="main-forms-container">
-        <div class="chips" id="ingredients">
+
+        <div class="row" id="chip-form">
+
+            <div class="chips" id="ingredients">
+            </div>
+
         </div>
         <div class="row" id="form-row">
 
-            <form class="col s12" id="form-column">˜
+            <form class="col s12" id="form-column">
 
+                <br>
 
-                <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+                <button class="btn waves-effect waves-light" type="submit" name="action">Search for Recipes!
                     <i class="material-icons right">send</i>
                 </button>
+                
             </form>
         </div>
 
@@ -50,12 +58,15 @@
 
         <div id="results-header-row" class="row">
             <div id="results-header-col" class="col s12 center-align ">
-                <h2>Results</h2>
+                <h2>Results</h2> 
+                <p id="result"></p>
             </div>
         </div>
         <div id="results-recipe-row" class="row">
             <div id="results-recipe-col" class="col s12 center-align z-depth-2">
                 <h2>Recipe</h2>
+
+               
                 <img src="./images/food-pic.jpeg" alt="" class="responsive-img" alt="recipe-test">
             </div>
         </div>
@@ -67,7 +78,7 @@
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"
         integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <script src="./script.js"></script>
+    <script src="./Prototype.js"></script>
 
 </body>
 
