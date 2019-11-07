@@ -7,27 +7,15 @@ var ingredientsArray = [];
 form.on("submit", function (e) {
     e.preventDefault();
 
-    // var ingredients = $("#ingredients");
-    // var ingredientDivArr = ingredients[0].M_Chips["$chips"];
-    // console.log(ingredientDivArr);
-    // var searchIngredients = [];
-    // for (var i = 0; i < ingredientDivArr.length; i++) {
-    //     var thisIngredient = ingredientDivArr[i];
-    //     searchIngredients.push($(thisIngredient).text().replace("close", ""))
-    // }
-    var chipInstance = M.Chips.getInstance($("#ingredients"));
-    console.log(chipInstance);
-    // get the data from the chip object
-    var ingredientsData = chipInstance.chipsData;
-    console.log(ingredientsData);
-    // create a new blank array
-    ingredientsArray = [];
-    // loop over our data object and create our array of ingredients
-    ingredientsData.forEach(function(ingredient){
-        ingredientsArray.push(ingredient.tag);
-    });
-    console.log(ingredientsArray);
-    getSpoonacularData(ingredientsArray.join(","), 10, function (response) {
+    var ingredients = $("#ingredients");
+    var ingredientDivArr = ingredients[0].M_Chips["$chips"];
+    console.log(ingredientDivArr);
+    var searchIngredients = [];
+    for (var i = 0; i < ingredientDivArr.length; i++) {
+        var thisIngredient = ingredientDivArr[i];
+        searchIngredients.push($(thisIngredient).text().replace("close", ""))
+    }
+    getSpoonacularData(searchIngredients.join("&"), 10, function (response) {
         console.log(response)
 
         var recipeDiv = $("<div>");
@@ -35,34 +23,19 @@ form.on("submit", function (e) {
         response.forEach(function (recipe) {
             var pOne = $("<p>").text("recipe: " + recipe.title).attr("data-id", recipe.id)
             var pTwo = $("<p>").text("recipeId: " + recipe.id);
-            var base = "https://spoonacular.com/recipes/";
-            var title = encodeURI(recipe.title.replace(" ", "-"))
-            console.log(title)
-            var url = `${base}${title}-${recipe.id}`;
-            console.log(url)
-
+            
 
             var img = $("<img>").attr({
                 src: recipe.image,
                 alt: "food"
-
+                
             })
             recipeDiv.append(pOne, pTwo, img);
         })
 
         $("#recipe-view").append(recipeDiv);
     })
-
-    //     response.forEach(function(recipe){
-    //     var base = "https://spoonacular.com/recipes/";
-    //        var title = encodeURI(recipe.title.replace(" ","-"))
-    //        console.log(title)
-    //        var url = `${base}${title}-${recipe.id}`;
-    //        console.log(url)
-    // });
 })
-
-
 
 
 function renderIngredients() {
@@ -77,6 +50,7 @@ $("#ingredients").chips();
 
 
 function getSpoonacularData(searchItem, number, callBack) {
+
     $.ajax({
         // method: "GET",
         // url: `https://api.spoonacular.com/recipes/search?query=${searchItem}&number=${number}&apiKey=bd181a4abdb64fba83f1add04302f39c`,

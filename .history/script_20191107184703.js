@@ -35,34 +35,19 @@ form.on("submit", function (e) {
         response.forEach(function (recipe) {
             var pOne = $("<p>").text("recipe: " + recipe.title).attr("data-id", recipe.id)
             var pTwo = $("<p>").text("recipeId: " + recipe.id);
-            var base = "https://spoonacular.com/recipes/";
-            var title = encodeURI(recipe.title.replace(" ", "-"))
-            console.log(title)
-            var url = `${base}${title}-${recipe.id}`;
-            console.log(url)
-
+            
 
             var img = $("<img>").attr({
                 src: recipe.image,
                 alt: "food"
-
+                
             })
             recipeDiv.append(pOne, pTwo, img);
         })
 
         $("#recipe-view").append(recipeDiv);
     })
-
-    //     response.forEach(function(recipe){
-    //     var base = "https://spoonacular.com/recipes/";
-    //        var title = encodeURI(recipe.title.replace(" ","-"))
-    //        console.log(title)
-    //        var url = `${base}${title}-${recipe.id}`;
-    //        console.log(url)
-    // });
 })
-
-
 
 
 function renderIngredients() {
