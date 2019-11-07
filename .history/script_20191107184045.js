@@ -7,7 +7,7 @@ var ingredientsArray = [];
 form.on("submit", function (e) {
     e.preventDefault();
 
-    // var ingredients = $("#ingredients");
+    var ingredients = $("#ingredients");
     // var ingredientDivArr = ingredients[0].M_Chips["$chips"];
     // console.log(ingredientDivArr);
     // var searchIngredients = [];
@@ -16,7 +16,6 @@ form.on("submit", function (e) {
     //     searchIngredients.push($(thisIngredient).text().replace("close", ""))
     // }
     var chipInstance = M.Chips.getInstance($("#ingredients"));
-    console.log(chipInstance);
     // get the data from the chip object
     var ingredientsData = chipInstance.chipsData;
     console.log(ingredientsData);
@@ -62,13 +61,15 @@ $("#ingredients").chips();
 
 
 function getSpoonacularData(searchItem, number, callBack) {
+    var url =  `https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients?number=${number}&ranking=1&ignorePantry=false&ingredients=${searchItem}`;
+    console.log(url);
     $.ajax({
         // method: "GET",
         // url: `https://api.spoonacular.com/recipes/search?query=${searchItem}&number=${number}&apiKey=bd181a4abdb64fba83f1add04302f39c`,
         // {
         "async": true,
         "crossDomain": true,
-        "url": `https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients?number=${number}&ranking=1&ignorePantry=false&ingredients=${searchItem}`,
+        "url": url,
         "method": "GET",
         "headers": {
             "x-rapidapi-host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",

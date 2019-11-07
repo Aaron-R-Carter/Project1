@@ -16,7 +16,6 @@ form.on("submit", function (e) {
     //     searchIngredients.push($(thisIngredient).text().replace("close", ""))
     // }
     var chipInstance = M.Chips.getInstance($("#ingredients"));
-    console.log(chipInstance);
     // get the data from the chip object
     var ingredientsData = chipInstance.chipsData;
     console.log(ingredientsData);
