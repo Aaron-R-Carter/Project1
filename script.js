@@ -33,6 +33,7 @@ form.on("submit", function (e) {
         // console.log(response)
 
         mainResultsContainer.removeClass("displayNone");
+        clearItemsBtn.removeClass("displayNone");
 
         // print dynamic results header
         var resultH3 = $("#result-h3");
@@ -85,7 +86,7 @@ form.on("submit", function (e) {
 
     })
 
-    scrollToResults();
+    // scrollToResults();
 })
 
 //scroll to top button
@@ -120,10 +121,10 @@ function getSpoonacularData(searchItem, number, callBack) {
 
 };
 
-function scrollToResults () {
+// function scrollToResults () {
     
-        $('main-results-container').scrollTop(0);
-      };
+//         $('main-results-container').scrollTop(0);
+//       };
 
 
 
