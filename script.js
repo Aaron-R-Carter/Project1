@@ -7,19 +7,16 @@ var recipeView = $("#recipe-view");
 var recipeDiv = $("<div>");
 var ingredientsArray = [];
 
-
 // clear all items btn event
 clearItemsBtn.on("click", function () {
     window.location.reload(true);
 });
 
-
-// button to submit chip array 
+// button to submit chip array for results
 form.on("submit", function (e) {
     e.preventDefault();
 
-
-
+    //init chips instance at form
     var chipInstance = M.Chips.getInstance($("#ingredients"));
     console.log(chipInstance);
     // get the data from the chip object
@@ -44,38 +41,44 @@ form.on("submit", function (e) {
         var resultH3 = $("#result-h3");
         resultH3.text("Your Recipes:");
 
+        // for each loop that gets results from array
         response.forEach(function (recipe) {
             var pOne = $("<p>").text(recipe.title).attr("data-id", recipe.id)
             var pTwo = $("<p>").text();
             var base = "https://spoonacular.com/recipes/";
             var title = encodeURI(recipe.title.replace("%20", "-"))
-            var resultsArray = $('recipe-view');
 
+            //remove recipe array upon re-pressing search
+            var resultsArray = $('recipe-view');
             while (resultsArray.firstChild) {
                 resultsArray.removeChild(resultsArray.firstChild)
             };
 
-           
+            //create dynamic url for recipe link
             var url = `${base}${title}-${recipe.id}`;
             
-
+            //turn image into link
             var link = $("<a target = '_blank'>").attr("href", url)
 
-
+            //create img
             var img = $("<img>");
             
+            //set image sttributes for source from api
             img.attr({
                 src: recipe.image,
-
             });
 
+            //add image width class to contain inside container
             img.addClass("image-width");
 
+            //apend img variable to link variable
             link.append(img);
 
+            // prepare to append final results to page
             recipeDiv.append(pOne, pTwo, link);
         })
 
+        // append final results to page
         recipeView.append(recipeDiv);
     })
 
@@ -105,12 +108,6 @@ function getSpoonacularData(searchItem, number, callBack) {
     }).then(function (response) {
 
         callBack(response)
-
-
-
-
-
-
 
     })
 
