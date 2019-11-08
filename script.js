@@ -2,6 +2,7 @@ var form = $("#form-column");
 var input = $("#ingredients-input");
 var chipsColumn = $("#chips-column");
 var clearItemsBtn = $("#clear-items-btn")
+var mainResultsContainer = $("#main-results-container");
 var ingredientsArray = [];
 
 
@@ -14,6 +15,8 @@ clearItemsBtn.on("click", function () {
 // button to submit chip array 
 form.on("submit", function (e) {
     e.preventDefault();
+
+
 
     var chipInstance = M.Chips.getInstance($("#ingredients"));
     console.log(chipInstance);
@@ -30,6 +33,8 @@ form.on("submit", function (e) {
 
     getSpoonacularData(ingredientsArray.join(","), 10, function (response) {
         console.log(response)
+
+        mainResultsContainer.removeClass("displayNone");
 
         var recipeDiv = $("<div>");
 
@@ -100,6 +105,19 @@ function getSpoonacularData(searchItem, number, callBack) {
     })
 
 };
+
+
+//scroll to top button
+
+var scrollTop = $("#scrollTop");
+
+// scrollTop.on("click", function(){
+//     var pageBody = $("body").first();
+//     pageBody.scrollTop());
+// };
+
+// var p = $( "p" ).first();
+// $( "p" ).last().text( "scrollTop:" + p.scrollTop() );
 
 
 
