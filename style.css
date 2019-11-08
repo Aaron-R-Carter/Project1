@@ -39,10 +39,11 @@ body{
     display:none;
 }
 
-#main-forms-container{
-
-}
 
 footer{
     width: 100%;
+}
+
+.image-width{
+    max-width: 80% !important;
 }
