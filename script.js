@@ -31,6 +31,10 @@ form.on("submit", function (e) {
             var pTwo = $("<p>").text("recipeId: " + recipe.id);
             var base = "https://spoonacular.com/recipes/";
             var title = encodeURI(recipe.title.replace("%20", "-"))
+            var resultsArray = document.getElementById('recipe-view');
+             while(resultsArray.firstChild){
+            resultsArray.removeChild(resultsArray.firstChild)
+             };
             console.log(title)
             var url = `${base}${title}-${recipe.id}`;
             console.log(url)
@@ -81,6 +85,7 @@ function getSpoonacularData(searchItem, number, callBack) {
 
 
     })
+
 };
 
 
