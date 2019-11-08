@@ -1,12 +1,19 @@
 var form = $("#form-column");
 var input = $("#ingredients-input");
 var chipsColumn = $("#chips-column");
+var clearItemsBtn = $("#clear-items-btn")
 var ingredientsArray = [];
+
+
+// clear all items btn event
+clearItemsBtn.on("click", function () {
+    window.location.reload(true);
+});
+
 
 // button to submit chip array 
 form.on("submit", function (e) {
     e.preventDefault();
-
 
     var chipInstance = M.Chips.getInstance($("#ingredients"));
     console.log(chipInstance);
@@ -16,7 +23,7 @@ form.on("submit", function (e) {
     // create a new blank array
     ingredientsArray = [];
     // loop over our data object and create our array of ingredients
-    ingredientsData.forEach(function(ingredient){
+    ingredientsData.forEach(function (ingredient) {
         ingredientsArray.push(ingredient.tag);
     });
     console.log(ingredientsArray);
@@ -26,15 +33,21 @@ form.on("submit", function (e) {
 
         var recipeDiv = $("<div>");
 
+        // print dynamic results header
+        var resultH3 = $("#result-h3");
+        resultH3.text("Your Recipes:");
+
         response.forEach(function (recipe) {
             var pOne = $("<p>").text("recipe: " + recipe.title).attr("data-id", recipe.id)
             var pTwo = $("<p>").text("recipeId: " + recipe.id);
             var base = "https://spoonacular.com/recipes/";
             var title = encodeURI(recipe.title.replace("%20", "-"))
-            var resultsArray = document.getElementById('recipe-view');
-             while(resultsArray.firstChild){
-            resultsArray.removeChild(resultsArray.firstChild)
-             };
+            var resultsArray = $('recipe-view');
+
+            while (resultsArray.firstChild) {
+                resultsArray.removeChild(resultsArray.firstChild)
+            };
+
             console.log(title)
             var url = `${base}${title}-${recipe.id}`;
             console.log(url)
@@ -87,5 +100,10 @@ function getSpoonacularData(searchItem, number, callBack) {
     })
 
 };
+
+
+
+
+
 
 
