@@ -43,8 +43,8 @@ form.on("submit", function (e) {
         resultH3.text("Your Recipes:");
 
         response.forEach(function (recipe) {
-            var pOne = $("<p>").text("recipe: " + recipe.title).attr("data-id", recipe.id)
-            var pTwo = $("<p>").text("recipeId: " + recipe.id);
+            var pOne = $("<p>").text(recipe.title).attr("data-id", recipe.id)
+            var pTwo = $("<p>").text();
             var base = "https://spoonacular.com/recipes/";
             var title = encodeURI(recipe.title.replace("%20", "-"))
             var resultsArray = $('recipe-view');
