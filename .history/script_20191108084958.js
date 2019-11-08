@@ -27,12 +27,12 @@ form.on("submit", function (e) {
         var recipeDiv = $("<div>");
 
         response.forEach(function (recipe) {
-            var pOne = $("<p>").text("recipe: " + recipe.title)/*.attr("data-id", recipe.id);*/
-            // var pTwo = $("<p>").text("recipeId: " + recipe.id);
+            var pOne = $("<p>").text("recipe: " + recipe.title).attr("data-id", recipe.id);
+            var pTwo = $("<p>").text("recipeId: " + recipe.id);
             var base = "https://spoonacular.com/recipes/";
             var title = encodeURI(recipe.title.replace("%20", "-"))
             console.log(title)
-            var url = `${base}${title}`;
+            var url = `${base}${title}-${recipe.id}`;
             console.log(url)
 
             var link = $("<a target = '_blank'>").attr("href", url)
@@ -46,7 +46,7 @@ form.on("submit", function (e) {
 
             link.append(img)
 
-            recipeDiv.append(pOne, link);
+            recipeDiv.append(pOne, pTwo, link);
         })
 
         $("#recipe-view").append(recipeDiv);
@@ -77,8 +77,8 @@ function getSpoonacularData(searchItem, number, callBack) {
 
 
 
-        // -${recipe.id}
-        // pTwo,
+
+
 
     })
 };
