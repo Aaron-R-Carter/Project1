@@ -14,6 +14,10 @@ form.on("submit", function (e) {
         var thisIngredient = ingredientDivArr[i];
         searchIngredients.push($(thisIngredient).text().replace("close", ""))
     }
+    var div = document.getElementById('recipe-view');
+    while(div.firstChild){
+    div.removeChild(div.firstChild);
+}
     getSpoonacularData(searchIngredients.join("&"), 10, function (response) {
         console.log(response)
 
@@ -45,7 +49,7 @@ form.on("submit", function (e) {
             recipeDiv.append(pOne, pTwo, link);
         });
 
-        $("#recipe-view").append(recipeDiv);
+        $("#recipe-view").prepend(recipeDiv);
     })
 })
 
