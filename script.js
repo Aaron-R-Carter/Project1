@@ -3,6 +3,8 @@ var input = $("#ingredients-input");
 var chipsColumn = $("#chips-column");
 var clearItemsBtn = $("#clear-items-btn")
 var mainResultsContainer = $("#main-results-container");
+var recipeView = $("#recipe-view");
+var recipeDiv = $("<div>");
 var ingredientsArray = [];
 
 
@@ -36,7 +38,7 @@ form.on("submit", function (e) {
 
         mainResultsContainer.removeClass("displayNone");
 
-        var recipeDiv = $("<div>");
+        
 
         // print dynamic results header
         var resultH3 = $("#result-h3");
@@ -53,31 +55,39 @@ form.on("submit", function (e) {
                 resultsArray.removeChild(resultsArray.firstChild)
             };
 
-            console.log(title)
+           
             var url = `${base}${title}-${recipe.id}`;
-            console.log(url)
+            
 
             var link = $("<a target = '_blank'>").attr("href", url)
 
 
-            var img = $("<img>").attr({
+            var img = $("<img>");
+            
+            img.attr({
                 src: recipe.image,
-                alt: "food"
 
-            })
+            });
 
-            link.append(img)
+            img.addClass("image-width");
+
+            link.append(img);
 
             recipeDiv.append(pOne, pTwo, link);
         })
 
-        $("#recipe-view").append(recipeDiv);
+        recipeView.append(recipeDiv);
     })
 
 })
 
 // init chips function, materialize
 $("#ingredients").chips();
+
+//init carasoul
+$(document).ready(function(){
+    $('.carousel').carousel();
+  });
 
 
 // createunction to return results from API
