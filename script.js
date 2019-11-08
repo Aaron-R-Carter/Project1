@@ -17,20 +17,20 @@ form.on("submit", function (e) {
 
     //init chips instance at form
     var chipInstance = M.Chips.getInstance($("#ingredients"));
-    console.log(chipInstance);
+    // console.log(chipInstance);
     // get the data from the chip object
     var ingredientsData = chipInstance.chipsData;
-    console.log(ingredientsData);
+    // console.log(ingredientsData);
     // create a new blank array
     ingredientsArray = [];
     // loop over our data object and create our array of ingredients
     ingredientsData.forEach(function (ingredient) {
         ingredientsArray.push(ingredient.tag);
     });
-    console.log(ingredientsArray);
+    // console.log(ingredientsArray);
 
     getSpoonacularData(ingredientsArray.join(","), 10, function (response) {
-        console.log(response)
+        // console.log(response)
 
         mainResultsContainer.removeClass("displayNone");
 
@@ -70,8 +70,13 @@ form.on("submit", function (e) {
             //apend img variable to link variable
             link.append(img);
 
+            var resultsCardDiv = $("<div class='card'>");
+           
+
+            resultsCardDiv.append(pOne, link);
+
             // prepare to append final results to page
-            recipeView.append(pOne, link);
+            recipeView.append(resultsCardDiv);
         })
 
         // append final results to page
@@ -108,10 +113,12 @@ function getSpoonacularData(searchItem, number, callBack) {
 };
 
 function scrollToResults () {
-    form.on('submit', function () {
-        var id_search = $("#input").val();
-      $("#main-results-container").focus();
-})};
+    form.on('submit', "#main-results-container", function () {
+        $('html, body').animate({
+          scrollTop: $("#main-results-container").offset().top
+        }, 2000);
+      });
+  };
 
 
 //scroll to top button
