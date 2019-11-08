@@ -8,8 +8,12 @@ body{
     
 }
 
+#results-recipe-row{
+    padding:0;
+}
+
 #results-recipe-col{
-    padding:20px;
+    /* padding:20px; */
 }
 
 #ingredients{
@@ -46,4 +50,16 @@ footer{
 
 .image-width{
     max-width: 80% !important;
+}
+
+#recipe-view{
+    padding-top:15px;
+}
+
+#results-header-row{
+    margin: 0px;
+}
+
+#result-h3{
+    margin-bottom:0;
 }

@@ -4,7 +4,6 @@ var chipsColumn = $("#chips-column");
 var clearItemsBtn = $("#clear-items-btn")
 var mainResultsContainer = $("#main-results-container");
 var recipeView = $("#recipe-view");
-var recipeDiv = $("<div>");
 var ingredientsArray = [];
 
 // clear all items btn event
@@ -35,8 +34,6 @@ form.on("submit", function (e) {
 
         mainResultsContainer.removeClass("displayNone");
 
-        
-
         // print dynamic results header
         var resultH3 = $("#result-h3");
         resultH3.text("Your Recipes:");
@@ -44,7 +41,6 @@ form.on("submit", function (e) {
         // for each loop that gets results from array
         response.forEach(function (recipe) {
             var pOne = $("<p>").text(recipe.title).attr("data-id", recipe.id)
-            var pTwo = $("<p>").text();
             var base = "https://spoonacular.com/recipes/";
             var title = encodeURI(recipe.title.replace("%20", "-"))
 
@@ -56,13 +52,13 @@ form.on("submit", function (e) {
 
             //create dynamic url for recipe link
             var url = `${base}${title}-${recipe.id}`;
-            
+
             //turn image into link
             var link = $("<a target = '_blank'>").attr("href", url)
 
             //create img
             var img = $("<img>");
-            
+
             //set image sttributes for source from api
             img.attr({
                 src: recipe.image,
@@ -75,22 +71,20 @@ form.on("submit", function (e) {
             link.append(img);
 
             // prepare to append final results to page
-            recipeDiv.append(pOne, pTwo, link);
+            recipeView.append(pOne, link);
         })
 
         // append final results to page
-        recipeView.append(recipeDiv);
+        // recipeView.append(recipeDiv);
+
+
     })
 
+    scrollToResults();
 })
 
 // init chips function, materialize
 $("#ingredients").chips();
-
-//init carasoul
-$(document).ready(function(){
-    $('.carousel').carousel();
-  });
 
 
 // createunction to return results from API
@@ -112,6 +106,12 @@ function getSpoonacularData(searchItem, number, callBack) {
     })
 
 };
+
+function scrollToResults () {
+    form.on('submit', function () {
+        var id_search = $("#input").val();
+      $("#main-results-container").focus();
+})};
 
 
 //scroll to top button
