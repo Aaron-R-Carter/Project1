@@ -29,7 +29,7 @@ form.on("submit", function (e) {
     });
     // console.log(ingredientsArray);
 
-    getSpoonacularData(ingredientsArray.join(","), 10, function (response) {
+    getSpoonacularData(ingredientsArray.join(","), 50, function (response) {
         // console.log(response)
 
         mainResultsContainer.removeClass("displayNone");
@@ -88,8 +88,16 @@ form.on("submit", function (e) {
     scrollToResults();
 })
 
+//scroll to top button
+var scrollTop = $("#scrollTop");
+
+scrollTop.on("click", function(){
+        $('html, body').scrollTop(0);
+     });
+
 // init chips function, materialize
 $("#ingredients").chips();
+
 
 
 // createunction to return results from API
@@ -113,25 +121,17 @@ function getSpoonacularData(searchItem, number, callBack) {
 };
 
 function scrollToResults () {
-    form.on('submit', "#main-results-container", function () {
-        $('html, body').animate({
-          scrollTop: $("#main-results-container").offset().top
-        }, 2000);
-      });
-  };
+    
+        $('main-results-container').scrollTop(0);
+      };
 
 
-//scroll to top button
 
-var scrollTop = $("#scrollTop");
 
-// scrollTop.on("click", function(){
-//     var pageBody = $("body").first();
-//     pageBody.scrollTop());
-// };
 
-// var p = $( "p" ).first();
-// $( "p" ).last().text( "scrollTop:" + p.scrollTop() );
+
+
+
 
 
 
