@@ -47,9 +47,10 @@ form.on("submit", function (e) {
 
             //remove recipe array upon re-pressing search
             var resultsArray = $('recipe-view');
-            while (resultsArray.firstChild) {
-                resultsArray.removeChild(resultsArray.firstChild)
-            };
+            // while (resultsArray.firstChild) {
+            //     resultsArray.removeChild(resultsArray.firstChild)
+            // };
+            resultsArray.empty();
 
             //create dynamic url for recipe link
             var url = `${base}${title}-${recipe.id}`;
@@ -77,7 +78,7 @@ form.on("submit", function (e) {
             resultsCardDiv.append(pOne, link);
 
             // prepare to append final results to page
-            recipeView.append(resultsCardDiv);
+            recipeView.prepend(resultsCardDiv);
         })
 
         // append final results to page
