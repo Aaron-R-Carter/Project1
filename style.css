@@ -72,6 +72,13 @@ footer{
     padding-bottom: 15px;
 }
 
+#recipeHeader {
+    padding-left:30px;
+    padding-right: 30px;
+
+
+}
+
 #footer{
     width: 100%;
 }

@@ -1,10 +1,10 @@
-var form = $("#form-column");
-var input = $("#ingredients-input");
-var chipsColumn = $("#chips-column");
-var clearItemsBtn = $("#clear-items-btn")
-var mainResultsContainer = $("#main-results-container");
-var recipeView = $("#recipe-view");
-var ingredientsArray = [];
+const form = $("#form-column");
+const input = $("#ingredients-input");
+const chipsColumn = $("#chips-column");
+const clearItemsBtn = $("#clear-items-btn")
+const mainResultsContainer = $("#main-results-container");
+const recipeView = $("#recipe-view");
+const ingredientsArray = [];
 
 // clear all items btn event
 clearItemsBtn.on("click", function () {
@@ -15,25 +15,33 @@ clearItemsBtn.on("click", function () {
 form.on("submit", function (e) {
     e.preventDefault();
 
+    recipeView.empty();
+
+
     //init chips instance at form
     var chipInstance = M.Chips.getInstance($("#ingredients"));
-    // console.log(chipInstance);
+   
     // get the data from the chip object
     var ingredientsData = chipInstance.chipsData;
-    // console.log(ingredientsData);
-    // create a new blank array
-    ingredientsArray = [];
+
+
+    
     // loop over our data object and create our array of ingredients
     ingredientsData.forEach(function (ingredient) {
         ingredientsArray.push(ingredient.tag);
     });
-    // console.log(ingredientsArray);
+   
 
     getSpoonacularData(ingredientsArray.join(","), 50, function (response) {
         // console.log(response)
 
         mainResultsContainer.removeClass("displayNone");
         clearItemsBtn.removeClass("displayNone");
+        
+        // scroll to results on click
+        $('html, body').animate({
+            scrollTop: $("#main-results-container").offset().top
+        }, 1000);
 
         // print dynamic results header
         var resultH3 = $("#result-h3");
@@ -41,7 +49,7 @@ form.on("submit", function (e) {
 
         // for each loop that gets results from array
         response.forEach(function (recipe) {
-            var pOne = $("<p>").text(recipe.title).attr("data-id", recipe.id)
+            var pOne = $("<p id='recipeHeader'>").text(recipe.title).attr("data-id", recipe.id)
             var base = "https://spoonacular.com/recipes/";
             var title = encodeURI(recipe.title.replace("%20", "-"))
 
