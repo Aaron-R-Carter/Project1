@@ -4,7 +4,7 @@ const chipsColumn = $("#chips-column");
 const clearItemsBtn = $("#clear-items-btn")
 const mainResultsContainer = $("#main-results-container");
 const recipeView = $("#recipe-view");
-const ingredientsArray = [];
+let ingredientsArray = [];
 
 // clear all items btn event
 clearItemsBtn.on("click", function () {
@@ -15,23 +15,13 @@ clearItemsBtn.on("click", function () {
 form.on("submit", function (e) {
     e.preventDefault();
 
+    //clear recipe results container
     recipeView.empty();
 
+    //compile chips into array
+    getChipsArray();
 
-    //init chips instance at form
-    var chipInstance = M.Chips.getInstance($("#ingredients"));
-   
-    // get the data from the chip object
-    var ingredientsData = chipInstance.chipsData;
-
-
-    
-    // loop over our data object and create our array of ingredients
-    ingredientsData.forEach(function (ingredient) {
-        ingredientsArray.push(ingredient.tag);
-    });
-   
-
+    //get data from spoonacular
     getSpoonacularData(ingredientsArray.join(","), 50, function (response) {
         // console.log(response)
 
@@ -130,11 +120,20 @@ function getSpoonacularData(searchItem, number, callBack) {
 
 };
 
-// function scrollToResults () {
-    
-//         $('main-results-container').scrollTop(0);
-//       };
-
+function getChipsArray(){
+    //init chips instance at form
+    var chipInstance = M.Chips.getInstance($("#ingredients"));
+    // console.log(chipInstance);
+    // get the data from the chip object
+    var ingredientsData = chipInstance.chipsData;
+    // console.log(ingredientsData);
+    // create a new blank array
+    ingredientsArray = [];
+    // loop over our data object and create our array of ingredients
+    ingredientsData.forEach(function (ingredient) {
+        ingredientsArray.push(ingredient.tag);
+    });
+}
 
 
 
