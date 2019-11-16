@@ -18,24 +18,23 @@ form.on("submit", function (e) {
     //clear recipe results container
     recipeView.empty();
 
-    //compile chips into array
+    //compile chips into array function
     getChipsArray();
 
-    //get data from spoonacular
+    //Spoonacular AJAX Data function & arguments
     getSpoonacularData(ingredientsArray.join(","), 50, function (response) {
         // console.log(response)
 
+        // generate results container
         mainResultsContainer.removeClass("displayNone");
         clearItemsBtn.removeClass("displayNone");
-        
+        resultH3 = $("#result-h3");
+        resultH3.text("Your Recipes:");
+
         // scroll to results on click
         $('html, body').animate({
             scrollTop: $("#main-results-container").offset().top
         }, 1000);
-
-        // print dynamic results header
-        var resultH3 = $("#result-h3");
-        resultH3.text("Your Recipes:");
 
         // for each loop that gets results from array
         response.forEach(function (recipe) {
@@ -71,7 +70,7 @@ form.on("submit", function (e) {
             link.append(img);
 
             var resultsCardDiv = $("<div class='card'>");
-           
+
 
             resultsCardDiv.append(pOne, link);
 
@@ -91,9 +90,9 @@ form.on("submit", function (e) {
 //scroll to top button
 var scrollTop = $("#scrollTop");
 
-scrollTop.on("click", function(){
-        $('html, body').scrollTop(0);
-     });
+scrollTop.on("click", function () {
+    $('html, body').scrollTop(0);
+});
 
 // init chips function, materialize
 $("#ingredients").chips();
@@ -120,7 +119,7 @@ function getSpoonacularData(searchItem, number, callBack) {
 
 };
 
-function getChipsArray(){
+function getChipsArray() {
     //init chips instance at form
     var chipInstance = M.Chips.getInstance($("#ingredients"));
     // console.log(chipInstance);
@@ -132,7 +131,9 @@ function getChipsArray(){
     // loop over our data object and create our array of ingredients
     ingredientsData.forEach(function (ingredient) {
         ingredientsArray.push(ingredient.tag);
+
     });
+
 }
 
 
