@@ -6,6 +6,16 @@ const mainResultsContainer = $("#main-results-container");
 const recipeView = $("#recipe-view");
 let ingredientsArray = [];
 
+//localStorage crap
+let searchedArrays = [];
+let storedSearch = localStorage.getItem("searchedArrays");
+
+if(storedSearch !== null) {
+    searchedArrays = JSON.parse(storedSearch) 
+} 
+
+console.log(searchedArrays);
+
 // clear all items btn event
 clearItemsBtn.on("click", function () {
     window.location.reload(true);
@@ -20,6 +30,8 @@ form.on("submit", function (e) {
 
     //compile chips into array function
     getChipsArray();
+
+    localStorage.setItem("searchedArrays", JSON.stringify(searchedArrays));
 
     //Spoonacular AJAX Data function & arguments
     getSpoonacularData(ingredientsArray.join(","), 50, function (response) {
@@ -133,6 +145,9 @@ function getChipsArray() {
         ingredientsArray.push(ingredient.tag);
 
     });
+
+    searchedArrays.push(ingredientsArray);
+    console.log(searchedArrays);
 
 }
 
