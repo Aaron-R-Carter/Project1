@@ -6,15 +6,12 @@ const mainResultsContainer = $("#main-results-container");
 const recipeView = $("#recipe-view");
 let ingredientsArray = [];
 
-//localStorage crap
+//localStorage 
 let searchedArrays = [];
 let storedSearch = localStorage.getItem("searchedArrays");
-
-if(storedSearch !== null) {
-    searchedArrays = JSON.parse(storedSearch) 
-} 
-
-console.log(searchedArrays);
+if (storedSearch !== null) {
+    searchedArrays = JSON.parse(storedSearch)
+} console.log(searchedArrays);
 
 // clear all items btn event
 clearItemsBtn.on("click", function () {
@@ -164,3 +161,5 @@ function getChipsArray() {
 
 
 
+// function to rerender searchedArrays and print call function every time I search
+//results in multiple tabs
