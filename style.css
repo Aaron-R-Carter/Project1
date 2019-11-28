@@ -24,6 +24,12 @@ body{
     
 }
 
+@media (min-width:993px){
+#main-forms-container{
+    margin-left:45px;
+    margin-right:30px;
+}}
+
 #results-recipe-row{
     padding-top:0;
     padding-left:0px;
