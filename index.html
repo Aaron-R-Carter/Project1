@@ -10,7 +10,7 @@
     <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 </head>
- 
+
 
 <body>
 
@@ -23,7 +23,12 @@
             <p class="center-align">
                 <i class="material-icons">touch_app</i><em> Press the return key to add 1 ingredient
                     at a time</em></p>
+            <br>
+            
+
         </div>
+        <br>
+
 
 
 
@@ -37,75 +42,80 @@
                             <div class="card-image">
                                 <img style="" src="images/foodheader2.jpg">
                                 <div class="card-content white-text ">
-                                    
-                                    </div>
 
                                 </div>
 
-                                <div  style="o" class="row" id="chip-form">
-
-                                    <div style="" class="chips" id="ingredients">
-                                        <input placeholder="Add Ingredients">
-                                    </div>
-
-
-
-
-                                </div>
-
-                                <div class="row" id="form-row">
-
-                                    <form class="col l12" id="form-column">
-
-
-
-                                        <button style="opacity: 1" class="btn waves-effect waves-light hoverable white black-text"
-                                            type="submit" name="action">Click for
-                                            Recipes!
-                                            <i class="material-icons right">send</i>
-                                        </button>
-
-
-
-                                    </form>
-
-                                </div>
-                                <div class="card-action displayNone" id='clear-items-btn'>
-                                    <a href="#"><i class="material-icons">refresh</i> Clear All</a>
-
-                                </div>
                             </div>
 
+                            <div style="o" class="row" id="chip-form">
+
+                                <div style="" class="chips" id="ingredients">
+                                    <input placeholder="Add Ingredients">
+                                </div>
+
+
+
+
+                            </div>
+
+                            <div class="row" id="form-row">
+
+                                <form class="col l12" id="form-column">
+
+
+
+                                    <button id="search-btn" style="opacity: 1"
+                                        class="btn waves-effect waves-light hoverable white black-text" type="submit"
+                                        name="action">Click for
+                                        Recipes!
+                                        <i class="material-icons right">send</i>
+                                    </button>
+
+                                </form>
+
+                            </div>
+                            <div>
+                                <div id="progress-bar" class="progress displayNone">
+                                    <div class="indeterminate"></div>
+                                </div>
+                            </div>
+                            <div class="card-action displayNone" id='clear-items-btn'>
+                                <a href="#"><i class="material-icons">refresh</i> Clear All</a>
+
+                            </div>
                         </div>
+
                     </div>
-
-
                 </div>
 
-                <div id="main-results-container" class="container displayNone z-depth-5 blue-grey lighten-1">
-
-                    <div id="results-header-row" class="row">
-                        <div id="results-header-col" class="col s12 center-align white-text ">
-                            <h3 id="result-h3"></h3>
-                        </div>
-                    </div>
-
-                    <div id="results-recipe-row" class="row center-align">
-                        <div id="results-recipe-col" class="col s12 center-align ">
-
-                            <div class="" id="recipe-view"></div>
-
-
-                        </div>
-                        <!-- scroll to top button -->
-                        <a class="waves-effect waves-light btn" id="scrollTop">Scroll to Top</a>
-                    </div>
-                </div>
 
             </div>
+
+            <div id="main-results-container"
+                class="container displayNone  z-depth-5 blue-grey lighten-1">
+
+                <div id="results-header-row" class="row">
+                    <div id="results-header-col" class="col s12 center-align white-text ">
+                        <h3 id="result-h3"></h3>
+                    </div>
+                </div>
+
+                <div id="results-recipe-row" class="row center-align">
+                    <div id="results-recipe-col" class="col s12 center-align ">
+
+                        <div class="" id="recipe-view"></div>
+
+
+                    </div>
+                    <!-- scroll to top button -->
+                    <a class="waves-effect waves-light btn" id="scrollTop">Scroll to Top</a>
+                </div>
+            </div>
+
         </div>
     </div>
 
+    
 
 
 

@@ -1,5 +1,9 @@
-//init chips function from materializeCSS
-$("#ingredients").chips();
+//init materializecss components
+
+$(document).ready(function () {
+    $('.tabs').tabs();
+    $("#ingredients").chips();
+});
 
 //div grabbers
 const form = $("#form-column");
@@ -8,6 +12,7 @@ const chipsColumn = $("#chips-column");
 const clearItemsBtn = $("#clear-items-btn")
 const mainResultsContainer = $("#main-results-container");
 const recipeView = $("#recipe-view");
+let progressBarDiv = $("#progress-bar")
 
 //init ingredients array for chips data to input into ajax call 
 let ingredientsArray = [];
@@ -17,7 +22,7 @@ let searchedArrays = [];
 let storedSearch = localStorage.getItem("searchedArrays");
 if (storedSearch !== null) {
     searchedArrays = JSON.parse(storedSearch)
-} console.log(searchedArrays);
+} 
 
 //button to submit chip array for results
 form.on("submit", function (e) {
@@ -27,11 +32,13 @@ form.on("submit", function (e) {
     recipeView.empty();
     //compile chips into array function
     getChipsArray();
+    //engage progress bar
+    progressBar();
     //set local storage from chips array
     localStorage.setItem("searchedArrays", JSON.stringify(searchedArrays));
 
     //AJAX Call to Spoonacular including recipe print functionality
-    getSpoonacularData(ingredientsArray.join(","), 5, function (response) {
+    getSpoonacularData(ingredientsArray.join(","), 50, function (response) {
 
         generateResultsContainer();
 
@@ -49,7 +56,7 @@ form.on("submit", function (e) {
             //create content for printed results
             let pOne = $("<p id='recipeHeader'>").text(recipe.title).attr("data-id", recipe.id);
             var title = encodeURI(recipe.title.replace("%20", "-"));
-            
+
             //turn image into link
             var link = $("<a target = '_blank'>").attr("href", url)
             var img = $("<img>");
@@ -66,6 +73,9 @@ form.on("submit", function (e) {
             resultsCardDiv.append(pOne, link);
             //prepare to append final results to page
             recipeView.prepend(resultsCardDiv);
+            // kill progress bar
+            progressBarDiv.addClass("displayNone");
+
         });
 
     });
@@ -128,6 +138,14 @@ function scrollToResults() {
 function refreshResultsArray() {
     var resultsArray = $('recipe-view');
     resultsArray.empty();
+};
+
+function progressBar() {
+
+    if (recipeView.is(':empty')) {
+        progressBarDiv.removeClass("displayNone")
+    }
+
 };
 
 
