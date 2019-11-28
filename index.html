@@ -24,112 +24,128 @@
 </nav> -->
 
 <body>
-    <div>
-        <h1 class="center-align">Recipe Generator</h1>
-        <p class="flow-text center-align"><i class="material-icons ">done</i> Add ingredients you have in your fridge. <br><i class="material-icons ">assignment</i> Get
-            a list of recipes that include your ingredients!</p><br>
-    </div>
 
-    <div class="container" id="main-forms-container">
-        <div class="row">
+    <div class="row" id="main-row">
+        <div class="col l6 m12">
+            <h1 class="center-align">Recipe Generator</h1>
+            <p class="flow-text center-align"><i class="material-icons ">done</i> Add ingredients you have in your
+                fridge.
+                <br><i class="material-icons ">assignment</i> Get
+                a list of recipes that include your ingredients!</p>
+            <p class="center-align">
+                <i class="material-icons">touch_app</i><em> Press the return key to add 1 ingredient
+                    at a time</em></p>
+        </div>
 
-            <div class="col s12" id="card-col">
 
-                <div class="card blue-grey lighten-1 z-depth-5 hoverable" id="search-card">
-                    <div class="card-image">
-                        <!-- <img style="opacity: .8" src="./images/food header.jpg"> -->
-                        <div class="card-content white-text ">
-                            <!-- <span class="card-title center-align"><strong>Recipe Generator:</strong></span> -->
-                            <!-- <a class="btn-floating halfway-fab waves-effect waves-light red"><i
+
+        <div class="col l6">
+            <div class="container" id="main-forms-container">
+                <div class="row">
+
+                    <div class="col l12" id="card-col">
+
+                        <div class="card blue-grey lighten-1 z-depth-5 hoverable" id="search-card">
+                            <div class="card-image">
+                                <img style="opacity: .8" src="images/foodheader2.jpg">
+                                <div class="card-content white-text ">
+                                    <!-- <span class="card-title center-align"><strong>Recipe Generator:</strong></span> -->
+                                    <!-- <a class="btn-floating halfway-fab waves-effect waves-light red"><i
                                 class="material-icons">add</i></a> -->
-                            <!-- <h2> Recipe Generator:</h2> -->
-                            <!-- <i class="material-icons ">assignment</i> -->
-                            <!-- <p class="flow-text">» Add ingredients you have in your fridge. <br>» Get
+                                    <!-- <h2> Recipe Generator:</h2> -->
+                                    <!-- <i class="material-icons ">assignment</i> -->
+                                    <!-- <p class="flow-text">» Add ingredients you have in your fridge. <br>» Get
                                 a list of recipes that include your ingredients!</p><br> -->
-                            <div class="white-text">
-                                <i class="material-icons left">touch_app</i>
-                                <p class="left"><em>Press the return key to add 1 ingredient at a time</em></p>
+                                    <div class="white-text">
+                                        <!-- <i class="material-icons left">touch_app</i>
+                                <p class="left"><em>Press the return key to add 1 ingredient at a time</em></p> -->
+                                    </div>
+
+                                </div>
+
+                                <div class="row" id="chip-form">
+
+                                    <div class="chips" id="ingredients">
+                                        <input placeholder="Add Ingredients">
+                                    </div>
+
+
+
+
+                                </div>
+
+                                <div class="row" id="form-row">
+
+                                    <form class="col l12" id="form-column">
+
+
+
+                                        <button class="btn waves-effect waves-light hoverable white black-text"
+                                            type="submit" name="action">Click for
+                                            Recipes!
+                                            <i class="material-icons right">send</i>
+                                        </button>
+
+
+
+                                    </form>
+
+                                </div>
+                                <div class="card-action displayNone" id='clear-items-btn'>
+                                    <a href="#"><i class="material-icons">refresh</i> Clear All</a>
+
+                                </div>
                             </div>
-
-                        </div>
-
-                        <div class="row" id="chip-form">
-
-                            <div class="chips" id="ingredients">
-                                <input placeholder="Add Ingredients">
-                            </div>
-
-
-
-
-                        </div>
-
-                        <div class="row" id="form-row">
-
-                            <form class="col s12" id="form-column">
-
-
-
-                                <button class="btn waves-effect waves-light hoverable white black-text" type="submit"
-                                    name="action">Search for
-                                    Recipes!
-                                    <i class="material-icons right">send</i>
-                                </button>
-
-
-
-                            </form>
-
-                        </div>
-                        <div class="card-action displayNone" id='clear-items-btn'>
-                            <a href="#"><i class="material-icons">refresh</i> Clear All</a>
 
                         </div>
                     </div>
 
+
                 </div>
+
+                <div id="main-results-container" class="container displayNone z-depth-5 blue-grey lighten-1">
+
+                    <div id="results-header-row" class="row">
+                        <div id="results-header-col" class="col s12 center-align white-text ">
+                            <h3 id="result-h3"></h3>
+                        </div>
+                    </div>
+
+                    <div id="results-recipe-row" class="row center-align">
+                        <div id="results-recipe-col" class="col s12 center-align ">
+
+                            <div class="" id="recipe-view"></div>
+
+
+                        </div>
+                        <!-- scroll to top button -->
+                        <a class="waves-effect waves-light btn" id="scrollTop">Scroll to Top</a>
+                    </div>
+                </div>
+
             </div>
-
-
         </div>
-
-        <div id="main-results-container" class="container displayNone z-depth-5 blue-grey lighten-1">
-
-            <div id="results-header-row" class="row">
-                <div id="results-header-col" class="col s12 center-align white-text ">
-                    <h3 id="result-h3"></h3>
-                </div>
-            </div>
-
-            <div id="results-recipe-row" class="row center-align">
-                <div id="results-recipe-col" class="col s12 center-align ">
-
-                    <div class="" id="recipe-view"></div>
-
-
-                </div>
-                <!-- scroll to top button -->
-                <a class="waves-effect waves-light btn" id="scrollTop">Scroll to Top</a>
-            </div>
-        </div>
+    </div>
 
 
 
 
 
-        <script src="https://code.jquery.com/jquery-3.4.1.min.js"
-            integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-        <script src="./script.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="./script.js"></script>
 
 </body>
 
 
 
-<footer>
-        <div><p class="center-align">© 2019 Aaron Robert Carter</p></div>
+<!-- <footer>
+    <div>
+        <p class="center-align">© 2019 Aaron Robert Carter</p>
+    </div>
 
-</footer>
+</footer> -->
 
 
 </html>

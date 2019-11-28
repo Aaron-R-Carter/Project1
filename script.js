@@ -61,7 +61,7 @@ form.on("submit", function (e) {
             link.append(img);
 
             //create card div
-            var resultsCardDiv = $("<div class='card'>");
+            var resultsCardDiv = $("<div class='card results-card'>");
             //print content to results card
             resultsCardDiv.append(pOne, link);
             //prepare to append final results to page
