@@ -3,6 +3,10 @@
 $(document).ready(function () {
     $('.tabs').tabs();
     $("#ingredients").chips();
+    $('.sidenav').sidenav();
+    $('.fixed-action-btn').floatingActionButton();
+    $('.tooltipped').tooltip();
+
 });
 
 //div grabbers
@@ -153,7 +157,10 @@ function progressBar() {
 
 //scroll to top button
 var scrollTop = $("#scrollTop");
+var floatingScroll = $("#floating-scroll");
+
 scrollTop.on("click", function () { $('html, body').scrollTop(0); });
+floatingScroll.on("click", function () { $('html, body').scrollTop(0); });
 
 //clear all items btn event
 clearItemsBtn.on("click", function () {
