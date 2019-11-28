@@ -43,17 +43,17 @@ form.on("submit", function (e) {
             refreshResultsArray();
 
             //create dynamic url for recipe link
-            var base = "https://spoonacular.com/recipes/";
+            const base = "https://spoonacular.com/recipes/";
             var url = `${base}${title}-${recipe.id}`;
 
             //create content for printed results
-            var pOne = $("<p id='recipeHeader'>").text(recipe.title).attr("data-id", recipe.id);
+            let pOne = $("<p id='recipeHeader'>").text(recipe.title).attr("data-id", recipe.id);
             var title = encodeURI(recipe.title.replace("%20", "-"));
-
+            
             //turn image into link
             var link = $("<a target = '_blank'>").attr("href", url)
             var img = $("<img>");
-            //set image sttributes for source from api
+            //set image attributes for source from api
             img.attr({ src: recipe.image, });
             //add image width class to contain inside container
             img.addClass("image-width");
@@ -76,6 +76,7 @@ form.on("submit", function (e) {
 
 //return results from API
 function getSpoonacularData(searchItem, number, callBack) {
+
     $.ajax({
         "async": true,
         "crossDomain": true,
@@ -97,25 +98,21 @@ function getSpoonacularData(searchItem, number, callBack) {
 function getChipsArray() {
     //init chips instance at form
     var chipInstance = M.Chips.getInstance($("#ingredients"));
-    // console.log(chipInstance);
     // get the data from the chip object
     var ingredientsData = chipInstance.chipsData;
-    // console.log(ingredientsData);
     // create a new blank array
     ingredientsArray = [];
     // loop over our data object and create our array of ingredients
     ingredientsData.forEach(function (ingredient) {
         ingredientsArray.push(ingredient.tag);
-
     });
 
+    //local storage array of arrays push
     searchedArrays.push(ingredientsArray);
     console.log(searchedArrays);
-
 };
 
 function generateResultsContainer() {
-
     mainResultsContainer.removeClass("displayNone");
     clearItemsBtn.removeClass("displayNone");
     resultH3 = $("#result-h3");
@@ -134,7 +131,7 @@ function refreshResultsArray() {
 };
 
 
-// *********BUTTONS**********
+// *********UI BUTTONS**********
 
 //scroll to top button
 var scrollTop = $("#scrollTop");
