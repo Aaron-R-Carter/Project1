@@ -169,6 +169,15 @@ clearItemsBtn.on("click", function () {
 
 });
 
+var refreshBtn = $("#refresh-btn");
+
+refreshBtn.on("click", function () {
+    window.location.reload(true);
+    localStorage.clear();
+
+});
+
+
 
 
 // function to rerender searchedArrays and print call function every time I search
