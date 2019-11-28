@@ -30,6 +30,16 @@ body{
     margin-right:30px;
 }}
 
+.title-text{
+    margin-top:30px;
+}
+
+@media (max-width:500px){
+    .title-text{
+        margin-top:5px;
+    }
+}
+
 #results-recipe-row{
     padding-top:0;
     padding-left:0px;

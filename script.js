@@ -140,6 +140,8 @@ scrollTop.on("click", function () { $('html, body').scrollTop(0); });
 //clear all items btn event
 clearItemsBtn.on("click", function () {
     window.location.reload(true);
+    localStorage.clear();
+
 });
 
 
