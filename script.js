@@ -5,6 +5,7 @@ $(document).ready(function () {
     $('.fixed-action-btn').floatingActionButton();
     $('.tooltipped').tooltip();
     $('.tap-target').tapTarget();
+    $('.parallax').parallax();
 });
 
 //div grabbers
@@ -153,6 +154,8 @@ function progressBar() {
         progressBarDiv.removeClass("displayNone")
     }
 };
+
+
 
 
 // *********UI BUTTONS**********
