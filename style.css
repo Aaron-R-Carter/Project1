@@ -3,6 +3,7 @@ body{
     background-image:url(./images/kitchen\ gradient\ 3.jpg);
     background-repeat: repeat-x;
     margin: 15px;
+    
 }
 @media (max-width:414px){
     body{
@@ -11,6 +12,8 @@ body{
 
     }
 }
+
+
 
 #main-row{
     margin-top:50px;

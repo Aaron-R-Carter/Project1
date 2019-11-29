@@ -21,10 +21,11 @@
             </div>
             <a href="#user"><img class="circle" src="./images/spoonacular-logo-b.svg"></a>
             <a href="#name"><span class="black-text name">Please log in:</span></a>
-            <a href="#email"><span class="black-text email">You must log in to Spoonacular to view recipes.</span></a>
+            <a href="#email"><span class="black-text email">You must log in to Spoonacular to view
+                    recipes.</span></a>
         </div>
     </li>
-    <li><a href="https://spoonacular.com/" target="_blank"><i class="material-icons">person</i>Spoonacular Login</a>
+    <li><a class="waves-effect" href="https://spoonacular.com/" target="_blank"><i class="material-icons">person</i>Spoonacular Login</a>
     </li>
     <!-- <li><a href="#!">Second Link</a></li>
     <li><div class="divider"></div></li>
@@ -34,7 +35,10 @@
 <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
 
 
+
 <body>
+
+
 
     <div class="row" id="main-row">
         <div class="col l6 m12">
@@ -42,14 +46,12 @@
             <p class="flow-text center-align"><i class="material-icons ">done</i> Add ingredients you want to use.
                 <br><i class="material-icons ">assignment</i> Get
                 a list of recipes that include your ingredients!</p>
-            
+                <!-- <hr style="width:135px"> -->
             <p class="center-align">
                 <i class="material-icons">touch_app</i><em> Press the return key to add 1 ingredient
                     at a time</em></p>
-                    <p class="center-align">
-                            <i class="material-icons"> help_outline</i><em> Click the menu to log in before you proceed</em></p>
+            
 
-                   
 
         </div>
 
@@ -98,6 +100,9 @@
 
                             </div>
                         </div>
+                        <p id="login-warn" class="center-align white-text">
+                                <i class="material-icons"> help_outline</i><em> Click the menu to log in before you proceed</em></p>
+                
 
                     </div>
                 </div>
@@ -122,18 +127,24 @@
 
                     </div>
                     <!-- scroll to top button -->
-                    <a class="waves-effect waves-light btn" id="scrollTop">Scroll to Top</a>
+                    <a class="waves-effect waves-light orange  pulse btn" id="scrollTop">Scroll to Top</a>
                 </div>
             </div>
 
         </div>
     </div>
+    <div class="row" id="results-row">
+            <div class="col l m12">
+
+            </div>
+
+    </div>
 
     <!-- fixed action button -->
 
     <div id="fixed-button" class="fixed-action-btn displayNone">
-        <a class="btn-floating btn-large blue">
-            <i class="large material-icons">menu</i>
+        <a class="btn-floating btn-large orange">
+            <i class="large material-icons">control_point</i>
         </a>
         <ul>
             <li><a class="btn-floating red pulse tooltipped" data-position="left" data-tooltip="Scroll to Top"
@@ -149,6 +160,7 @@
 
 
 
+
     <!-- dependencies -->
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"
@@ -157,6 +169,7 @@
     <script src="./script.js"></script>
 
 </body>
+
 
 
 

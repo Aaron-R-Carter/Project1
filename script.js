@@ -16,6 +16,7 @@ const mainResultsContainer = $("#main-results-container");
 const recipeView = $("#recipe-view");
 const progressBarDiv = $("#progress-bar");
 const fixedBtn = $("#fixed-button");
+const loginWarn = $("#login-warn");
 
 //init ingredients array for chips data to input into ajax call 
 let ingredientsArray = [];
@@ -133,6 +134,7 @@ function generateResultsContainer() {
     resultH3 = $("#result-h3");
     resultH3.text("Your Recipes:");
     fixedBtn.removeClass("displayNone");
+    loginWarn.addClass("displayNone");
 };
 
 function scrollToResults() {
