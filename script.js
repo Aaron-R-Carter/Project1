@@ -5,10 +5,10 @@ $(document).ready(function () {
     $('.fixed-action-btn').floatingActionButton();
     $('.tooltipped').tooltip();
     $('.tap-target').tapTarget();
-    $('.parallax').parallax();
+    
 });
 
-//div grabbers
+//div element grabbers
 const form = $("#form-column");
 const input = $("#ingredients-input");
 const chipsColumn = $("#chips-column");
@@ -17,7 +17,7 @@ const mainResultsContainer = $("#main-results-container");
 const recipeView = $("#recipe-view");
 const progressBarDiv = $("#progress-bar");
 const fixedBtn = $("#fixed-button");
-const loginWarn = $("#login-warn");
+
 
 //init ingredients array for chips data to input into ajax call 
 let ingredientsArray = [];
@@ -63,7 +63,7 @@ form.on("submit", function (e) {
             var title = encodeURI(recipe.title.replace("%20", "-"));
 
             //turn image into link
-            var link = $("<a target = '_blank'>").attr("href", url)
+            var link = $("<a>").attr("href", url)
             var img = $("<img>");
             //set image attributes for source from api
             img.attr({ src: recipe.image, });
@@ -135,6 +135,7 @@ function generateResultsContainer() {
     resultH3 = $("#result-h3");
     resultH3.text("Your Recipes:");
     fixedBtn.removeClass("displayNone");
+    const loginWarn = $("#login-warn");
     loginWarn.addClass("displayNone");
 };
 
