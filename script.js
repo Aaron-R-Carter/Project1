@@ -1,12 +1,10 @@
 //init materializecss components
-
 $(document).ready(function () {
-    $('.tabs').tabs();
     $("#ingredients").chips();
     $('.sidenav').sidenav();
     $('.fixed-action-btn').floatingActionButton();
     $('.tooltipped').tooltip();
-
+    $('.tap-target').tapTarget();
 });
 
 //div grabbers
@@ -16,7 +14,8 @@ const chipsColumn = $("#chips-column");
 const clearItemsBtn = $("#clear-items-btn")
 const mainResultsContainer = $("#main-results-container");
 const recipeView = $("#recipe-view");
-let progressBarDiv = $("#progress-bar")
+const progressBarDiv = $("#progress-bar");
+const fixedBtn = $("#fixed-button");
 
 //init ingredients array for chips data to input into ajax call 
 let ingredientsArray = [];
@@ -26,7 +25,7 @@ let searchedArrays = [];
 let storedSearch = localStorage.getItem("searchedArrays");
 if (storedSearch !== null) {
     searchedArrays = JSON.parse(storedSearch)
-} 
+}
 
 //button to submit chip array for results
 form.on("submit", function (e) {
@@ -71,6 +70,7 @@ form.on("submit", function (e) {
             //apend img variable to link variable
             link.append(img);
 
+
             //create card div
             var resultsCardDiv = $("<div class='card results-card'>");
             //print content to results card
@@ -104,10 +104,11 @@ function getSpoonacularData(searchItem, number, callBack) {
     }).then(function (response) {
 
         callBack(response)
-
+        // console.log(response);
     })
 
 };
+
 
 function getChipsArray() {
     //init chips instance at form
@@ -123,7 +124,7 @@ function getChipsArray() {
 
     //local storage array of arrays push
     searchedArrays.push(ingredientsArray);
-    console.log(searchedArrays);
+    // console.log(searchedArrays);
 };
 
 function generateResultsContainer() {
@@ -131,6 +132,7 @@ function generateResultsContainer() {
     clearItemsBtn.removeClass("displayNone");
     resultH3 = $("#result-h3");
     resultH3.text("Your Recipes:");
+    fixedBtn.removeClass("displayNone");
 };
 
 function scrollToResults() {
@@ -145,20 +147,19 @@ function refreshResultsArray() {
 };
 
 function progressBar() {
-
     if (recipeView.is(':empty')) {
         progressBarDiv.removeClass("displayNone")
     }
-
 };
 
 
 // *********UI BUTTONS**********
 
-//scroll to top button
-var scrollTop = $("#scrollTop");
-var floatingScroll = $("#floating-scroll");
+const scrollTop = $("#scrollTop");
+const floatingScroll = $("#floating-scroll");
+const refreshBtn = $("#refresh-btn");
 
+//scroll to top
 scrollTop.on("click", function () { $('html, body').scrollTop(0); });
 floatingScroll.on("click", function () { $('html, body').scrollTop(0); });
 
@@ -169,8 +170,7 @@ clearItemsBtn.on("click", function () {
 
 });
 
-var refreshBtn = $("#refresh-btn");
-
+//refresh btn floating
 refreshBtn.on("click", function () {
     window.location.reload(true);
     localStorage.clear();
