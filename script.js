@@ -1,11 +1,11 @@
 //init materializecss components
-$(document).ready(function () {
+$(document).ready(() => {
     $("#ingredients").chips();
     $('.sidenav').sidenav();
     $('.fixed-action-btn').floatingActionButton();
     $('.tooltipped').tooltip();
     $('.tap-target').tapTarget();
-    
+
 });
 
 //div element grabbers
@@ -30,7 +30,7 @@ if (storedSearch !== null) {
 }
 
 //button to submit chip array for results
-form.on("submit", function (e) {
+form.on("submit", (e) => {
     //prevent form submit default
     e.preventDefault();
     //clear recipe results container
@@ -43,14 +43,14 @@ form.on("submit", function (e) {
     localStorage.setItem("searchedArrays", JSON.stringify(searchedArrays));
 
     //AJAX Call to Spoonacular including recipe print functionality
-    getSpoonacularData(ingredientsArray.join(","), 50, function (response) {
+    getSpoonacularData(ingredientsArray.join(","), 50, (response) => {
 
         generateResultsContainer();
 
         scrollToResults();
 
         //loop that prints recipe results from response object
-        response.forEach(function (recipe) {
+        response.forEach((recipe) => {
 
             refreshResultsArray();
 
@@ -91,7 +91,7 @@ form.on("submit", function (e) {
 // *********FUNCTIONS**********
 
 //return results from API
-function getSpoonacularData(searchItem, number, callBack) {
+const getSpoonacularData = function (searchItem, number, callBack) {
 
     $.ajax({
         "async": true,
@@ -103,7 +103,7 @@ function getSpoonacularData(searchItem, number, callBack) {
             "x-rapidapi-key": "1ef656e72fmshe5f4267e958ab0fp1174eejsndba562eb441a"
         }
 
-    }).then(function (response) {
+    }).then((response) => {
 
         callBack(response)
         // console.log(response);
@@ -112,7 +112,7 @@ function getSpoonacularData(searchItem, number, callBack) {
 };
 
 
-function getChipsArray() {
+const getChipsArray = function () {
     //init chips instance at form
     var chipInstance = M.Chips.getInstance($("#ingredients"));
     // get the data from the chip object
@@ -120,7 +120,7 @@ function getChipsArray() {
     // create a new blank array
     ingredientsArray = [];
     // loop over our data object and create our array of ingredients
-    ingredientsData.forEach(function (ingredient) {
+    ingredientsData.forEach((ingredient) => {
         ingredientsArray.push(ingredient.tag);
     });
 
@@ -129,7 +129,7 @@ function getChipsArray() {
     // console.log(searchedArrays);
 };
 
-function generateResultsContainer() {
+const generateResultsContainer = function () {
     mainResultsContainer.removeClass("displayNone");
     clearItemsBtn.removeClass("displayNone");
     resultH3 = $("#result-h3");
@@ -139,23 +139,22 @@ function generateResultsContainer() {
     loginWarn.addClass("displayNone");
 };
 
-function scrollToResults() {
+const scrollToResults = function () {
     $('html, body').animate({
         scrollTop: $("#main-results-container").offset().top
     }, 1000);
 };
 
-function refreshResultsArray() {
+const refreshResultsArray = function () {
     var resultsArray = $('recipe-view');
     resultsArray.empty();
 };
 
-function progressBar() {
+const progressBar = function () {
     if (recipeView.is(':empty')) {
         progressBarDiv.removeClass("displayNone")
     }
 };
-
 
 
 
@@ -166,18 +165,23 @@ const floatingScroll = $("#floating-scroll");
 const refreshBtn = $("#refresh-btn");
 
 //scroll to top
-scrollTop.on("click", function () { $('html, body').scrollTop(0); });
-floatingScroll.on("click", function () { $('html, body').scrollTop(0); });
+scrollTop.on("click", () => {
+    $('html, body').scrollTop(0);
+});
+
+floatingScroll.on("click", () => {
+    $('html, body').scrollTop(0);
+});
 
 //clear all items btn event
-clearItemsBtn.on("click", function () {
+clearItemsBtn.on("click", () => {
     window.location.reload(true);
     localStorage.clear();
 
 });
 
 //refresh btn floating
-refreshBtn.on("click", function () {
+refreshBtn.on("click", () => {
     window.location.reload(true);
     localStorage.clear();
 
